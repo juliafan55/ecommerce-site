@@ -31,12 +31,30 @@ function Products() {
 
     function ShowProducts() {
         return (
+        <div>
         <div className="products-buttons">
             <button className="show-products-button">All</button>
             <button className="show-products-button">Women's Clothing</button>
             <button className="show-products-button">Men's Clothing</button>
-            <button className="show-products-button">All</button>
-            </div>
+            <button className="show-products-button">Jewerly</button>
+            <button className="show-products-button">Electronic</button>
+        </div>
+                
+        {filter.map((product) => {
+            return (
+                <div className="all-products-cards">    
+                    <div className="product-card" key={product.id}>
+                        <img src={product.image} alt={product.title} className="card-image" />
+                            <div className="card-body">
+                                <span className="card-title">{product.title.substring(0,12)}</span>
+                            <span className="product-price"> ${product.price}</span>
+                            <a href="/" alt="buy now"> Buy Now </a>
+                            </div>
+                    </div>
+                </div>
+                )
+            })}
+        </div>  
         )
     }
 
