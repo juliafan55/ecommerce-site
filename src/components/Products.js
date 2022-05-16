@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from "react"
+import React, { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 
 function Products() {
     const [products, setProducts] = useState([]);
@@ -8,6 +9,7 @@ function Products() {
     const ALL_PRODUCTS_URL = "https://fakestoreapi.com/products"
 
     async function getProducts() {
+        setLoading(true)
         const response = await fetch(ALL_PRODUCTS_URL);
         const data = await response.json();
         // console.log(data)
@@ -47,16 +49,18 @@ function Products() {
                 
         {filter.map((product) => {
             return (
-                <div className="all-products-cards">    
-                    <div className="product-card" key={product.id}>
-                        <img src={product.image} alt={product.title} className="card-image" />
-                            <div className="card-body">
-                                <span className="card-title">{product.title.substring(0,12)}</span>
-                            <span className="product-price"> ${product.price}</span>
-                            <a href="/" alt="buy now"> Buy Now </a>
-                            </div>
-                    </div>
-                </div>
+                <Link to={`/products/${product.id}`}>
+                    <span className="card" style={{ "display": "block" }}>
+                         <div className="product-card">
+                         <img src={product.image} alt={product.title} className="card-image" />
+                             <div className="card-body">
+                                 <span className="card-title">{product.title.substring(0,12)}</span>
+                             <span className="product-price"> ${product.price}</span>
+                                <Link to={`/products/${product.id}`} alt="buy now"> Buy Now </Link>
+                             </div>
+                        </div>
+                    </span>
+                </Link>
                 )
             })}
         </div>  
