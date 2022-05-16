@@ -38,8 +38,8 @@ function Products() {
         return (
         <div>
         <div className="products-buttons">
-            <button className="show-products-button" onClick={()=>setFilter(products)}>All</button>
-            <button className="show-products-button" onClick={()=>filterProduct("women's clothing")}>Women's Clothing</button>
+            <button className="show-products-button" onClick={() => setFilter(products)}>All</button>
+            <button className="show-products-button" onClick={() => filterProduct("women's clothing")}>Women's Clothing</button>
             <button className="show-products-button" onClick={() => filterProduct("men's clothing")}>Men's Clothing</button>
             <button className="show-products-button" onClick={() => filterProduct("jewelery")}>Jewerely</button>
             <button className="show-products-button" onClick={() => filterProduct("electronics")}>Electronics</button>
