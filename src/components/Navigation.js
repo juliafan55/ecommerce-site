@@ -4,21 +4,21 @@ import { Link } from "react-router-dom"
 
 function Navigation() {
     return (
-        <div className="navbar">
-            <div className="logo-container">
-                <Link to="/" alt="brand" className="logo"> ATLANTIC </Link>
-            </div>
-        
-            <div className="nav-container">
-                <div className="nav-products">
-                    <Link to="/" alt="home" className="nav-item"> Home </Link>
-                    <Link to="/products" alt="products" className="nav-item"> Products </Link>
+        <div className="w-screen h-[80px] z-10 bg-zinc-100 drop-shadow-lg">
+            <div className="px-2 flex justify-between items-center w-full h-full">
+                <div className="flex items-center">
+                    <Link to="/"><h1 className="text-3xl font-bold mr-4 sm:text-4xl">ATLANTIC</h1></Link>
+                    <ul className="hidden md:flex">
+                        <Link to="/"><li>Home</li></Link>
+                        <Link to="/products"><li>Products</li></Link>
+                    </ul>
                 </div>
-
-                <div className="nav-controls">
-                    <Link className="nav-login" to="/login" alt="login"> Login </Link>
-                    <Link className="nav-login" to="/register" alt="register"> Register </Link>
-                    <Link className="nav-login" to="/cart" alt="cart"> Cart (0)</Link>
+                <div>
+                    <div className="hidden md:flex pr-4">
+                        <button className="border-none bg-transparent text-black mr-4">Sign In</button>
+                        <button className="px-4 mr-4">Sign Up</button>
+                        <button className="px-4 mr-4">Cart(0)</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -28,3 +28,4 @@ function Navigation() {
 }
 
 export default Navigation
+    
