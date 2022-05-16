@@ -56,7 +56,7 @@ function Products() {
                              <div className="card-body">
                                  <span className="card-title">{product.title.substring(0,12)}</span>
                              <span className="product-price"> ${product.price}</span>
-                                <Link to={`/products/${product.id}`} alt="buy now"> Buy Now </Link>
+                                {/* <Link to={`/products/${product.id}`} alt="buy now"> Buy Now </Link> */}
                              </div>
                         </div>
                     </span>

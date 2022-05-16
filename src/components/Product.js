@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {useParams} from "react-router"
 
-function Product() {
+function Product(props) {
     const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(false)
 
@@ -21,6 +21,18 @@ function Product() {
         getProduct();
     }, [])
 
+    //gave me an cors error????
+    // useEffect(() => {
+    //     const getProduct = async () => {
+    //         setLoading(true)
+    //         const SINGLE_PRODUCT_URL = `https://fakestoreapi.com/products/${productID}`
+    //         const response = await fetch(SINGLE_PRODUCT_URL);
+    //         const data = await response.json();
+    //         setProduct(data)
+    //         setLoading(false)
+    //     }
+    //     getProduct()
+    // })
 
     function Loading() {
         return (
@@ -33,11 +45,24 @@ function Product() {
     function ShowProduct() {
         return (
             <div>
-                
+                <div>
+                    <img src={product.image} alt={product.title} />
+                </div>
+                <div>
+                    <p>{product.category}</p>
+                    <p>{product.title}</p>
+                    <p>Rating: {product.rating && product.rating.rate} {product.rating && product.rating.count} </p>
+                    <p> ${product.price}</p>
+                </div>
+                <div>
+                    <p>
+                        {product.description}
+                    </p>
+                </div>
+
             </div>
         )
     }
-
 
 
     return (
@@ -45,7 +70,6 @@ function Product() {
             <div>
                 {loading ? <Loading /> : <ShowProduct />}
             </div>
-            <img src={product.image}/>
         </div>
     )
     
