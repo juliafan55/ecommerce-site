@@ -1,6 +1,6 @@
 import React from "react";
 import cardImage from "../images/home-card-image.jpeg"
-import Products from "./Products";
+// import Products from "./Products";
 
 function Home() {
 
@@ -15,7 +15,8 @@ function Home() {
                     </div>
             </div>
             </div>
-            <Products />
+            {/* <Products /> */}
+            {/* insert some horizontal scroll stuff with static data */}
         </div>
     )
     
