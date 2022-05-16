@@ -29,15 +29,20 @@ function Products() {
         )
     }
 
+    function filterProduct(category) {
+        const filteredList = products.filter((cat) => cat.category === category);
+        setFilter(filteredList);
+    }
+
     function ShowProducts() {
         return (
         <div>
         <div className="products-buttons">
-            <button className="show-products-button">All</button>
-            <button className="show-products-button">Women's Clothing</button>
-            <button className="show-products-button">Men's Clothing</button>
-            <button className="show-products-button">Jewerly</button>
-            <button className="show-products-button">Electronic</button>
+            <button className="show-products-button" onClick={()=>setFilter(products)}>All</button>
+            <button className="show-products-button" onClick={()=>filterProduct("women's clothing")}>Women's Clothing</button>
+            <button className="show-products-button" onClick={() => filterProduct("men's clothing")}>Men's Clothing</button>
+            <button className="show-products-button" onClick={() => filterProduct("jewelery")}>Jewerely</button>
+            <button className="show-products-button" onClick={() => filterProduct("electronics")}>Electronics</button>
         </div>
                 
         {filter.map((product) => {
