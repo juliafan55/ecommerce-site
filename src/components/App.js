@@ -9,11 +9,9 @@ import Product from './Product';
 //dependencies
 import { Route, Routes } from "react-router-dom"
 
-
 function App() {
   return (
     <div className="App">
-      <h1> Logo </h1>
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />

@@ -1,0 +1,37 @@
+@import "properties";
+
+.navbar {
+  display: flex;
+
+  .logo {
+    font-size: 4em;
+    padding: 16px;
+  }
+  .nav-container {
+    display: flex;
+    margin-top: 25px;
+
+    .nav-products {
+      padding: 15px;
+
+      .nav-item {
+        padding: 0 15px;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    .nav-controls {
+      padding: 15px;
+      position: absolute;
+      right: 0;
+
+      .nav-login {
+        padding: 0 15px;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import cardImage from "../images/home-card-image.jpeg"
-// import Products from "./Products";
+import "../styles/home.scss"
 
 function Home() {
 
