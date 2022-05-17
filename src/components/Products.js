@@ -38,13 +38,28 @@ function Products() {
 
     function ShowProducts() {
         return (
-            <div className="bg-white text-slate-900 m-4 p-8 rounded-xl shadow-wxl flex justify-center">
-                <button className="uppercase px-3 py-1 m-2 bg-indigo-200 text-indigo-900 rounded-2xl text-sm">Shop All</button>
-                <button className="uppercase px-3 py-1 m-2 bg-indigo-200 text-indigo-900 rounded-2xl text-sm">Women's Clothing</button>
-                <button className="uppercase px-3 py-1 m-2 bg-indigo-200 text-indigo-900 rounded-2xl text-sm">Men's Clothing</button>
-                <button className="uppercase px-3 py-1 m-2 bg-indigo-200 text-indigo-900 rounded-2xl text-sm">Jewerely</button>
-                <button className="uppercase px-3 py-1 m-2 bg-indigo-200 text-indigo-900 rounded-2xl text-sm">Electronics</button>
-                
+            <div className="container px-6 py-8 mx-auto">
+                <div className="bg-white text-slate-900 m-4 p-8 rounded-xl flex justify-center">
+                    <button className="uppercase px-3 py-1 m-2 bg-indigo-200 text-indigo-900 rounded-2xl text-sm" onClick={() => setFilter(products)}>Shop All</button>
+                    <button className="uppercase px-3 py-1 m-2 bg-indigo-200 text-indigo-900 rounded-2xl text-sm" onClick={() => filterProduct("women's clothing")}>Women's Clothing</button>
+                    <button className="uppercase px-3 py-1 m-2 bg-indigo-200 text-indigo-900 rounded-2xl text-sm" onClick={() => filterProduct("men's clothing")}>Men's Clothing</button>
+                    <button className="uppercase px-3 py-1 m-2 bg-indigo-200 text-indigo-900 rounded-2xl text-sm" onClick={() => filterProduct("jewelery")}>Jewerely</button>
+                    <button className="uppercase px-3 py-1 m-2 bg-indigo-200 text-indigo-900 rounded-2xl text-sm" onClick={() => filterProduct("electronics")}>Electronics</button>
+                </div>
+
+                <div className="grid grid-cols-1 gap-8 mt-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    {filter.map((product) => {
+                        return (
+                            <Link to={`/products/${product.id}`}>
+                                <div className="flex flex-col items-center justify-center w-full max-w-lg mx-auto border rounded-lg p-4 transition ease-out delay 150 hover:-translate-y-1 hover:scale-110 duration-300">
+                                    <img className="object-cover w-full xl:h-80"src={product.image} alt={product.title} />
+                                    <p className="mt-2 text-lg font-medium text-gray-700 dark:text-gray-200"> {product.title.substring(0, 12)}</p>
+                                    <p className="text-blue-500"> ${product.price}</p>
+                                </div>
+                            </Link>
+                        )
+                    })}
+                </div>
             </div>
         )
     }

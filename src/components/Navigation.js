@@ -15,8 +15,8 @@ function Navigation() {
                 <div className="flex items-center">
                     <Link to="/"><h1 className="text-3xl font-bold m-4 sm:text-4xl">ATLANTIC</h1></Link>
                     <ul className="hidden md:flex">
-                        <Link to="/"><li>Home</li></Link>
-                        <Link to="/products"><li>Products</li></Link>
+                        <Link to="/"><li className="hover:underline underline-offset-2">Home</li></Link>
+                        <Link to="/products"><li className="hover:underline underline-offset-2">Products</li></Link>
                     </ul>
                 </div>
                 <div>
@@ -26,7 +26,7 @@ function Navigation() {
                         <button className="px-4 mr-4">Cart(0)</button>
                     </div>
                     <div className="md:hidden" onClick={handleClick}>
-                        {!nav ? <MenuIcon className="w-5"></MenuIcon> : <XIcon className="w-5" />}
+                        {!nav ? <MenuIcon className="w-5"> </MenuIcon> : <XIcon className="w-5"/>}
                         
                     </div>
                 </div>

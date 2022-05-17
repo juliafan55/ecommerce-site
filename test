@@ -59,3 +59,24 @@
         </div>  
         )
     }
+
+
+                   {filter.map((product) => {
+                    return (
+                        <div className="mt-6 lg:mt-0 lg:px-2 lg:w-4/5">
+                        <Link to={`/products/${product.id}`}>
+                            {/* <div className="flex container px-6 py-8 mx-auto"> */}
+                            <div className="grid grid-cols-1 gap-8 mt-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                                <div className="flex flex-col items-center justify-center w-full max-w-lg mx-auto">
+                                    <img className="object-cover w-full rounded-md h-72 xl:h-80" src={product.image} alt={product.title} />
+                                    {/* <div className="flex flex-column"> */}
+                                        <p className="mt-2 text-lg font-medium text-gray-700 dark:text-gray-200">{product.title.substring(0,12)}</p>
+                                        <p className="text-blue-500">${product.price}</p>
+                                    {/* </div> */}
+                                    </div>
+                                </div>
+                            {/* </div> */}
+                            </Link>
+                            </div>
+                        )
+                    })}
