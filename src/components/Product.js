@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router"
 import { Link } from "react-router-dom"
+import {ReactComponent as Rating} from "../images/rating-star.svg"
 
 function Product(props) {
     const [product, setProduct] = useState([])
@@ -22,19 +23,6 @@ function Product(props) {
         getProduct();
     }, [])
 
-    //gave me an cors error????
-    // useEffect(() => {
-    //     const getProduct = async () => {
-    //         setLoading(true)
-    //         const SINGLE_PRODUCT_URL = `https://fakestoreapi.com/products/${productID}`
-    //         const response = await fetch(SINGLE_PRODUCT_URL);
-    //         const data = await response.json();
-    //         setProduct(data)
-    //         setLoading(false)
-    //     }
-    //     getProduct()
-    // })
-
     function Loading() {
         return (
             <>
@@ -45,34 +33,41 @@ function Product(props) {
 
     function ShowProduct() {
         return (
-            <div>
-                <div>
-                    <img src={product.image} alt={product.title} />
+            <div className="min-w-screen min-h-screen bg-indigo-500 flex items-center p-5 lg:p-10 overflow-hidden relative">
+            <div className="w-full max-w-6xl rounded bg-white shadow-xl p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">
+                <div className="md:flex items-center -mx-10">
+                    <div className="w-full md:w-1/2 px-10 mb-10 md:mb-0">
+                        <div className="relative">
+                            <img src={product.image} className="w-full relative z-10" alt={product.title}/>
+                        </div>
+                    </div>
+                    <div className="w-full md:w-1/2 px-10">
+                        <div className="mb-10">
+                            <p className="font-bold uppercase text-1xl mb-4">{product.category}</p>
+                            <p className="font-bold text-3xl mb-4">{product.title}</p>
+                            <p className="text-sm mb-4">{product.description}<a href="#" className="opacity-50 text-gray-900 hover:opacity-100 inline-block text-xs leading-none border-b border-gray-900">MORE</a></p>
+                            <p className="text-sm flex">{product.rating && product.rating.rate} <Rating /> {product.rating && product.rating.count} reviews</p>
+                        </div>
+                        <div>
+                            <div className="inline-block align-bottom mr-5">
+                                <span className="text-2xl leading-none align-baseline">$</span>
+                                <span className="font-bold text-5xl leading-none align-baseline">{product.price}</span>
+                            </div>
+                            <div className="inline-block align-bottom">
+                                    <button className="bg-indigo-300 opacity-75 hover:opacity-100 text-indigo-600 hover:text-indigo-900 rounded-full px-10 py-2 font-semibold"><i className="mdi mdi-cart -ml-2 mr-2"></i> BUY NOW</button>
+                                </div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <p>{product.category}</p>
-                    <p>{product.title}</p>
-                    <p>Rating: {product.rating && product.rating.rate} {product.rating && product.rating.count} </p>
-                    <p> ${product.price}</p>
-                </div>
-                <div>
-                    <p>
-                        {product.description}
-                    </p>
-                </div>
-                <button>Add to cart</button>
-                <Link to="/cart">Go to cart</Link>
-
             </div>
+        </div>
         )
     }
 
     return (
-        <div>
             <div>
                 {loading ? <Loading /> : <ShowProduct />}
             </div>
-        </div>
     )
     
 }
