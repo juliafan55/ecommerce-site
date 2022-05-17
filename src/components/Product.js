@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router"
 import { Link } from "react-router-dom"
-import {ReactComponent as Rating} from "../images/rating-star.svg"
+import {StarIcon} from "@heroicons/react/outline"
 
 function Product(props) {
     const [product, setProduct] = useState([])
@@ -46,7 +46,7 @@ function Product(props) {
                             <p className="font-bold uppercase text-1xl mb-4">{product.category}</p>
                             <p className="font-bold text-3xl mb-4">{product.title}</p>
                             <p className="text-sm mb-4">{product.description}<a href="#" className="opacity-50 text-gray-900 hover:opacity-100 inline-block text-xs leading-none border-b border-gray-900">MORE</a></p>
-                            <p className="text-sm flex">{product.rating && product.rating.rate} <Rating /> {product.rating && product.rating.count} reviews</p>
+                            <p className="text-sm flex">{product.rating && product.rating.rate} <StarIcon className="w-4" /> {product.rating && product.rating.count} reviews</p>
                         </div>
                         <div>
                             <div className="inline-block align-bottom mr-5">
@@ -54,7 +54,7 @@ function Product(props) {
                                 <span className="font-bold text-5xl leading-none align-baseline">{product.price}</span>
                             </div>
                             <div className="inline-block align-bottom">
-                                    <button className="bg-indigo-300 opacity-75 hover:opacity-100 text-indigo-600 hover:text-indigo-900 rounded-full px-10 py-2 font-semibold"><i className="mdi mdi-cart -ml-2 mr-2"></i> BUY NOW</button>
+                                    <button className="bg-indigo-300 opacity-90 hover:opacity-100 text-indigo-500 hover:text-indigo-900 rounded-full px-10 py-2 font-semibold"><i className="mdi mdi-cart -ml-2 mr-2"></i> BUY NOW</button>
                                 </div>
                         </div>
                     </div>

@@ -54,7 +54,7 @@ function Products() {
                                 <div className="flex flex-col items-center justify-center w-full max-w-lg mx-auto border rounded-lg p-4 transition ease-out delay 150 hover:-translate-y-1 hover:scale-110 duration-300">
                                     <img className="object-cover w-full xl:h-80"src={product.image} alt={product.title} />
                                     <p className="mt-2 text-lg font-medium text-gray-700 dark:text-gray-200"> {product.title.substring(0, 12)}</p>
-                                    <p className="text-blue-500"> ${product.price}</p>
+                                    <p className="text-indigo-500"> ${product.price}</p>
                                 </div>
                             </Link>
                         )

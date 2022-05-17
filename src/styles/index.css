@@ -7,7 +7,7 @@
     @apply p-4;
   }
   button {
-    @apply text-white border bg-indigo-300 border-indigo-300
-      hover:bg-transparent hover:text-indigo-300 rounded-sm;
+    @apply text-indigo-600 border bg-indigo-300 border-indigo-300
+      hover:bg-transparent hover:text-indigo-600 rounded-sm;
   }
 }

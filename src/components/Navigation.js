@@ -35,7 +35,7 @@ function Navigation() {
                 <Link to="/"><li className="border-b-2 border-zinc-300 w-full">Home</li></Link>
                 <Link to="products"><li className="border-b-2 border-zinc-300 w-full">Products</li></Link>
                 <div className="flex flex-col my-4">
-                    <button className="bg-transparent text-indigo-300 px-4 py-2 mb-4">Sign In</button>
+                    <button className="bg-transparent text-indigo-500 px-4 py-2 mb-4">Sign In</button>
                     <button className="px-4 py-2 mb-4">Sign Up</button>
                     <button className="px-4 py-2 mb-4">Cart(0)</button>
                 </div>
