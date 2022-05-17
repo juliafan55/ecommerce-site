@@ -16,3 +16,46 @@
                 </div>
             </div>
         </div>
+
+                <div className="homepage">
+            <div className="home-card">
+                <img src={cardImage} className="home-card-image" alt="promotional" />
+                
+                        <div className="card-title"><h5> IT'S A BREEZE </h5></div>
+                        <div className="card-text"><p> From airy dresses to simple footwear, this drop is what summer wardrobe dreams are made of.</p></div>
+                   
+            </div>
+            
+            {/* insert some horizontal scroll stuff with static data */}
+        </div>
+
+        function ShowProducts() {
+        return (
+        <div>
+        <div className="products-buttons">
+            <button className="show-products-button" onClick={() => setFilter(products)}>All</button>
+            <button className="show-products-button" onClick={() => filterProduct("women's clothing")}>Women's Clothing</button>
+            <button className="show-products-button" onClick={() => filterProduct("men's clothing")}>Men's Clothing</button>
+            <button className="show-products-button" onClick={() => filterProduct("jewelery")}>Jewerely</button>
+            <button className="show-products-button" onClick={() => filterProduct("electronics")}>Electronics</button>
+        </div>
+                
+        {filter.map((product) => {
+            return (
+                <Link to={`/products/${product.id}`}>
+                    <span className="card" style={{ "display": "block" }}>
+                         <div className="product-card">
+                         <img src={product.image} alt={product.title} className="card-image" />
+                             <div className="card-body">
+                                 <span className="card-title">{product.title.substring(0,12)}</span>
+                             <span className="product-price"> ${product.price}</span>
+                                {/* <Link to={`/products/${product.id}`} alt="buy now"> Buy Now </Link> */}
+                             </div>
+                        </div>
+                    </span>
+                </Link>
+                )
+            })}
+        </div>  
+        )
+    }

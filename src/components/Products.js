@@ -38,44 +38,21 @@ function Products() {
 
     function ShowProducts() {
         return (
-        <div>
-        <div className="products-buttons">
-            <button className="show-products-button" onClick={() => setFilter(products)}>All</button>
-            <button className="show-products-button" onClick={() => filterProduct("women's clothing")}>Women's Clothing</button>
-            <button className="show-products-button" onClick={() => filterProduct("men's clothing")}>Men's Clothing</button>
-            <button className="show-products-button" onClick={() => filterProduct("jewelery")}>Jewerely</button>
-            <button className="show-products-button" onClick={() => filterProduct("electronics")}>Electronics</button>
-        </div>
+            <div className="bg-white text-slate-900 m-4 p-8 rounded-xl shadow-wxl flex justify-center">
+                <button className="uppercase px-3 py-1 m-2 bg-indigo-200 text-indigo-900 rounded-2xl text-sm">Shop All</button>
+                <button className="uppercase px-3 py-1 m-2 bg-indigo-200 text-indigo-900 rounded-2xl text-sm">Women's Clothing</button>
+                <button className="uppercase px-3 py-1 m-2 bg-indigo-200 text-indigo-900 rounded-2xl text-sm">Men's Clothing</button>
+                <button className="uppercase px-3 py-1 m-2 bg-indigo-200 text-indigo-900 rounded-2xl text-sm">Jewerely</button>
+                <button className="uppercase px-3 py-1 m-2 bg-indigo-200 text-indigo-900 rounded-2xl text-sm">Electronics</button>
                 
-        {filter.map((product) => {
-            return (
-                <Link to={`/products/${product.id}`}>
-                    <span className="card" style={{ "display": "block" }}>
-                         <div className="product-card">
-                         <img src={product.image} alt={product.title} className="card-image" />
-                             <div className="card-body">
-                                 <span className="card-title">{product.title.substring(0,12)}</span>
-                             <span className="product-price"> ${product.price}</span>
-                                {/* <Link to={`/products/${product.id}`} alt="buy now"> Buy Now </Link> */}
-                             </div>
-                        </div>
-                    </span>
-                </Link>
-                )
-            })}
-        </div>  
+            </div>
         )
     }
 
     return (
-        <div>
-            <div className="products-container">
-                <span>NEW ARRIVALS</span>
-            </div>
             <div className="show-products">
                 {loading ? <Loading /> : <ShowProducts />}
             </div>
-        </div>
     )
     
 }
