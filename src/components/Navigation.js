@@ -1,6 +1,7 @@
 import React, {useState} from "react"
 import { Link } from "react-router-dom"
-import {MenuIcon, XIcon} from "@heroicons/react/outline"
+import { MenuIcon, XIcon } from "@heroicons/react/outline"
+
 
 function Navigation() {
     const [nav, setNav] = useState(false)
@@ -19,6 +20,9 @@ function Navigation() {
                         <Link to="/products"><li className="hover:underline underline-offset-2">Products</li></Link>
                     </ul>
                 </div>
+                <div>
+                </div>
+
                 <div>
                     <div className="hidden md:flex pr-4">
                         <button className="border-none bg-transparent text-black mr-4">Sign In</button>
