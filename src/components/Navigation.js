@@ -11,8 +11,8 @@ function Navigation() {
     }
 
     return (
-        <div className="w-screen h-[80px] z-10 bg-zinc-100 drop-shadow-lg">
-            <div className="px-2 flex justify-between items-center w-full h-full">
+        <div className=" h-[80px] bg-zinc-100 drop-shadow-lg">
+            <div className="flex justify-between items-center w-full h-full">
                 <div className="flex items-center">
                     <Link to="/"><h1 className="text-3xl font-bold m-4 sm:text-4xl text-indigo-500">ATLANTIC</h1></Link>
                     <ul className="hidden md:flex">
