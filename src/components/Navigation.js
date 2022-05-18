@@ -27,7 +27,7 @@ function Navigation() {
                     <div className="hidden md:flex pr-4">
                         <button className="border-none bg-transparent text-black mr-4">Sign In</button>
                         <button className="px-4 mr-4">Sign Up</button>
-                        <button className="px-4 mr-4">Cart(0)</button>
+                        <Link to="/cart"><button className="px-4 mr-4">Cart(0)</button></Link>
                     </div>
                     <div className="md:hidden" onClick={handleClick}>
                         {!nav ? <MenuIcon className="w-5"> </MenuIcon> : <XIcon className="w-5"/>}
@@ -41,7 +41,7 @@ function Navigation() {
                 <div className="flex flex-col my-4">
                     <button className="bg-transparent text-indigo-500 px-4 py-2 mb-4">Sign In</button>
                     <button className="px-4 py-2 mb-4 rounded-2xl">Sign Up</button>
-                    <button className="px-4 py-2 mb-4 rounded-2xl">Cart(0)</button>
+                    <Link to="/cart"><button className="px-4 py-2 mb-4 rounded-2xl">Cart(0)</button></Link>
                 </div>
             </ul>
 

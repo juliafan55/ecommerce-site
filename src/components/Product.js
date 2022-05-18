@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router"
-import { Link } from "react-router-dom"
-import {StarIcon} from "@heroicons/react/outline"
+import { StarIcon } from "@heroicons/react/outline"
+import Cart from "./Cart";
 
 function Product(props) {
     const [product, setProduct] = useState([])
@@ -32,10 +32,34 @@ function Product(props) {
         )
     }
 
-    function addToCart(product) {
-        console.log("add")
-        setCart([...cart, product])
+    function addToCart() {
+        let newCart = [...cart];
+        let itemInCart = newCart.find(
+            (item) => product.title === item.title
+        );
+        if (itemInCart) {
+            itemInCart.quantity++;
+        } else {
+            itemInCart = {
+                ...product,
+                quantity: 1,
+            };
+            newCart.push(itemInCart)
+        }
+        setCart(newCart)
     }
+
+    console.log("cart", cart)
+
+    // function handleAddProduct(product) {
+    //     const ProductExist = cartItems.find((item) => item.id === product.id);
+    //     if (ProductExist) {
+    //         setCartItems(cartItems.map((item) => item.id === product.id ? { ...ProductExist, quantity: ProductExist.quantity + 1 } : item));
+    //     } else {
+    //         setCartItems([...cartItems, {...product, quantity: 1}])
+    //     }
+    // }
+    // console.log("cartItems", cartItems)
 
     function ShowProduct() {
         return (
@@ -59,7 +83,7 @@ function Product(props) {
                                 <span className="text-2xl leading-none align-baseline">$</span>
                                 <span className="font-bold text-5xl leading-none align-baseline">{product.price}</span>
                             </div>
-                            <div className="inline-block align-bottom">
+                                <div className="inline-block align-bottom">
                                     <button className="bg-indigo-300 opacity-90 hover:opacity-100 text-indigo-500 hover:text-indigo-900 rounded-full px-10 py-2 font-semibold" onClick={() => addToCart(product)}> ADD TO CART</button>
                                 </div>
                         </div>
@@ -72,8 +96,9 @@ function Product(props) {
 
     return (
             <div>
-                {loading ? <Loading /> : <ShowProduct />}
+            {loading ? <Loading /> : <ShowProduct />}
             </div>
+
     )
     
 }
