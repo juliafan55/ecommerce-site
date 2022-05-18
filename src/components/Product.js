@@ -6,6 +6,7 @@ import {StarIcon} from "@heroicons/react/outline"
 function Product(props) {
     const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(false)
+    const [cart, setCart] = useState([])
 
     const params = useParams()
     const productID = params.id
@@ -31,6 +32,11 @@ function Product(props) {
         )
     }
 
+    function addToCart(product) {
+        console.log("add")
+        setCart([...cart, product])
+    }
+
     function ShowProduct() {
         return (
             <div className="min-w-screen min-h-screen bg-indigo-500 flex items-center p-5 lg:p-10 overflow-hidden relative">
@@ -54,7 +60,7 @@ function Product(props) {
                                 <span className="font-bold text-5xl leading-none align-baseline">{product.price}</span>
                             </div>
                             <div className="inline-block align-bottom">
-                                    <button className="bg-indigo-300 opacity-90 hover:opacity-100 text-indigo-500 hover:text-indigo-900 rounded-full px-10 py-2 font-semibold"><i className="mdi mdi-cart -ml-2 mr-2"></i> BUY NOW</button>
+                                    <button className="bg-indigo-300 opacity-90 hover:opacity-100 text-indigo-500 hover:text-indigo-900 rounded-full px-10 py-2 font-semibold" onClick={() => addToCart(product)}> ADD TO CART</button>
                                 </div>
                         </div>
                     </div>
