@@ -40,8 +40,8 @@ function Navigation() {
                 <Link to="products"><li className="border-b-2 border-zinc-300 w-full">Products</li></Link>
                 <div className="flex flex-col my-4">
                     <button className="bg-transparent text-indigo-500 px-4 py-2 mb-4">Sign In</button>
-                    <button className="px-4 py-2 mb-4">Sign Up</button>
-                    <button className="px-4 py-2 mb-4">Cart(0)</button>
+                    <button className="px-4 py-2 mb-4 rounded-2xl">Sign Up</button>
+                    <button className="px-4 py-2 mb-4 rounded-2xl">Cart(0)</button>
                 </div>
             </ul>
 

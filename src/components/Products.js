@@ -7,7 +7,6 @@ function Products() {
     const [filter, setFilter] = useState(products);
     const [loading, setLoading] = useState(false)
     const [filterText, setFilterText] = useState("")
-    // const [search, setSearch] = useState()
 
     const ALL_PRODUCTS_URL = "https://fakestoreapi.com/products"
 
@@ -15,8 +14,6 @@ function Products() {
         setLoading(true)
         const response = await fetch(ALL_PRODUCTS_URL);
         const data = await response.json();
-        // console.log(data)
-        // console.log(filter)
         setProducts(data)
         setFilter(data)
         setLoading(false)
@@ -28,9 +25,7 @@ function Products() {
 
     function Loading() {
         return (
-            <>
-                Loading...
-            </>
+            <p className="text-center mt-20 text-4xl">Loading...</p>
         )
     }
 
@@ -48,7 +43,7 @@ function Products() {
                     <Search searchText={(text) => setFilterText(text)}/>
   
                 </div>
-                <div className="bg-white text-slate-900`https://fakestoreapi.com/products/${productID}` rounded-xl flex justify-center">
+                <div className="bg-white text-slate-900 rounded-xl flex justify-center md:flex-wrap">
                     <button className="uppercase px-3 py-1 m-2 bg-indigo-200 text-indigo-900 rounded-2xl text-sm" onClick={() => setFilter(products)}>Shop All</button>
                     <button className="uppercase px-3 py-1 m-2 bg-indigo-200 text-indigo-900 rounded-2xl text-sm" onClick={() => filterProduct("women's clothing")}>Women's Clothing</button>
                     <button className="uppercase px-3 py-1 m-2 bg-indigo-200 text-indigo-900 rounded-2xl text-sm" onClick={() => filterProduct("men's clothing")}>Men's Clothing</button>
@@ -57,7 +52,7 @@ function Products() {
                 </div>
 
                 <div className="grid grid-cols-1 gap-8 mt-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                    {filter.filter(product => product.title.includes(filterText)).map((product) => {
+                    {filter.filter(product => product.title.toLowerCase().includes(filterText)).map((product) => {
                         return (
                             <Link to={`/products/${product.id}`}>
                                 <div className="flex flex-col items-center justify-center w-full max-w-lg mx-auto border rounded-lg p-4 transition ease-out delay 150 hover:-translate-y-1 hover:scale-110 duration-300">

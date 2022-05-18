@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 
 function Search({searchText}) {
-    // const { products } = props;
     const [text, setText] = useState("")
     
     function handleSubmit(e) {
@@ -11,14 +10,14 @@ function Search({searchText}) {
 
     return (
         <div>
-        <form onSubmit={handleSubmit}>
-            <input type = "text" placeholder="Search..." onChange={(e) => setText(e.target.value)}/>
-            <button>Search</button>
+        <form onSubmit={handleSubmit} className="border border-indigo-200 rounded-2xl text-md pl-4 hover:shadow-md">
+            <input type = "text" placeholder="Search..." onChange={(e) => setText(e.target.value)} className=""/>
+            <button className="uppercase rounded-l-none px-4">Search</button>
         </form>
     </div>
     )
 }
 
-export default Search
+export default Search;
 
 

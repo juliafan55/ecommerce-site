@@ -27,7 +27,7 @@ function Product(props) {
     function Loading() {
         return (
             <>
-                Loading...
+                <p className="text-center mt-20 text-4xl">Loading...</p>
             </>
         )
     }
