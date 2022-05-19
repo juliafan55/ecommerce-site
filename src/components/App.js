@@ -7,7 +7,6 @@ import Product from './Product';
 import Cart from './Cart';
 
 //dependencies
-import { useState } from 'react';
 import { Route, Routes } from "react-router-dom"
 
 function App() {

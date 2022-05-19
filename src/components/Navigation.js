@@ -1,23 +1,18 @@
-import React, {useEffect, useState} from "react"
+import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { MenuIcon, XIcon } from "@heroicons/react/outline"
 
 
 function Navigation() {
     const [nav, setNav] = useState(false)
-    // const [currentCart, setCurrentCart] = useState(Object.keys(totalCart).length)
     
     function handleClick() {
         setNav(!nav)
     }
     
+    //not fully functional - only retrieves items from localstorage - need to use hook to rerender nav
     let totalCart = JSON.parse(localStorage["cart"])
     let currentCart = Object.keys(totalCart).length
-    console.log(currentCart + " items in cart")
-
-    // useEffect((cart) => {
-    //     if(cart) setCurrentCart(cart)
-    // },[currentCart])
 
     return (
         <div className=" h-[80px] bg-zinc-100 drop-shadow-lg">
@@ -40,7 +35,6 @@ function Navigation() {
                     </div>
                     <div className="md:hidden" onClick={handleClick}>
                         {!nav ? <MenuIcon className="w-5"> </MenuIcon> : <XIcon className="w-5"/>}
-                        
                     </div>
                 </div>
             </div>
@@ -55,9 +49,7 @@ function Navigation() {
             </ul>
 
         </div>
-
     )
-
 }
 
 export default Navigation

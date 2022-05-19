@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router"
 import { StarIcon } from "@heroicons/react/outline"
-import { useNavigate } from "react-router";
-import Cart from "./Cart";
 
 function Product(props) {
     const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(false)
-    // const [cart, setCart] = useState([])
-    const {cart, setCart} = props
 
     const params = useParams()
     const productID = params.id
@@ -35,17 +31,11 @@ function Product(props) {
     }
 
     function addToCart(newItem) {
-        // setCart(prevItems => [...prevItems, newItem])
-        // localStorage.setItem("cart", JSON.stringify(newItem))
         let cart = JSON.parse(localStorage.getItem("cart"))
         
         cart.push(newItem)
         localStorage.setItem("cart", JSON.stringify(cart))
-      
     }
-
-
-
 
     function ShowProduct() {
         return (

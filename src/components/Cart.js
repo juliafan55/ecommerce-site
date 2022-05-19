@@ -1,9 +1,7 @@
 import React from "react"
-import {useParams} from "react-router"
-import Product from "./Product"
 
 function Cart() {
-
+    //parse information taken from localstorage
     let currentCart = JSON.parse(localStorage.getItem("cart"))
     
     return (
