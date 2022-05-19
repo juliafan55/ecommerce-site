@@ -15,9 +15,6 @@ function Navigation({ updateCart, setUpdateCart }) {
             setUpdateCart (false)
         }
     }, [updateCart])
-    
-    //not fully functional - only retrieves items from localstorage - need to use hook to rerender nav
-    // let totalCart = JSON.parse(localStorage["cart"])
 
     const currentCart = useMemo(() => {
         return Object.keys(JSON.parse(localStorage.getItem("cart"))).length
