@@ -54,7 +54,7 @@ function Products() {
                 <div className="grid grid-cols-1 gap-8 mt-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     {filter.filter(product => product.title.toLowerCase().includes(filterText)).map((product) => {
                         return (
-                            <Link to={`/products/${product.id}`} key={product.id}>
+                            <Link to={`/products/${product.id}`} key={product.title}>
                                 <div className="flex flex-col items-center justify-center w-full max-w-lg mx-auto border rounded-lg p-4 transition ease-out delay 150 hover:-translate-y-1 hover:scale-110 duration-300">
                                     <img className="object-cover w-full"src={product.image} alt={product.title} />
                                     <p className="mt-2 text-lg font-medium text-gray-700 dark:text-gray-200"> {product.title.substring(0, 12)}</p>

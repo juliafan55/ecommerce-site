@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router"
 import { StarIcon } from "@heroicons/react/outline"
+import { useNavigate } from "react-router";
 import Cart from "./Cart";
 
 function Product(props) {
@@ -37,9 +38,12 @@ function Product(props) {
         // setCart(prevItems => [...prevItems, newItem])
         // localStorage.setItem("cart", JSON.stringify(newItem))
         let cart = JSON.parse(localStorage.getItem("cart"))
+        
         cart.push(newItem)
         localStorage.setItem("cart", JSON.stringify(cart))
+      
     }
+
 
 
 
@@ -55,7 +59,7 @@ function Product(props) {
                     </div>
                     <div className="w-full md:w-1/2 px-10">
                         <div className="mb-10">
-                            <p className="font-bold uppercase text-1xl mb-4">{product.category}</p>
+                            <p className="font-bold uppercaseext-1xl mb-4">{product.category}</p>
                             <p className="font-bold text-3xl mb-4">{product.title}</p>
                             <p className="text-sm mb-4">{product.description}<a href="#" className="opacity-50 text-gray-900 hover:opacity-100 inline-block text-xs leading-none border-b border-gray-900">MORE</a></p>
                             <p className="text-sm flex">{product.rating && product.rating.rate} <StarIcon className="w-4" /> {product.rating && product.rating.count} reviews</p>
