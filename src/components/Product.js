@@ -6,7 +6,8 @@ import Cart from "./Cart";
 function Product(props) {
     const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(false)
-    const [cart, setCart] = useState([])
+    // const [cart, setCart] = useState([])
+    const {cart, setCart} = props
 
     const params = useParams()
     const productID = params.id
@@ -32,34 +33,15 @@ function Product(props) {
         )
     }
 
-    function addToCart() {
-        let newCart = [...cart];
-        let itemInCart = newCart.find(
-            (item) => product.title === item.title
-        );
-        if (itemInCart) {
-            itemInCart.quantity++;
-        } else {
-            itemInCart = {
-                ...product,
-                quantity: 1,
-            };
-            newCart.push(itemInCart)
-        }
-        setCart(newCart)
+    function addToCart(newItem) {
+        // setCart(prevItems => [...prevItems, newItem])
+        // localStorage.setItem("cart", JSON.stringify(newItem))
+        let cart = JSON.parse(localStorage.getItem("cart"))
+        cart.push(newItem)
+        localStorage.setItem("cart", JSON.stringify(cart))
     }
 
-    console.log("cart", cart)
 
-    // function handleAddProduct(product) {
-    //     const ProductExist = cartItems.find((item) => item.id === product.id);
-    //     if (ProductExist) {
-    //         setCartItems(cartItems.map((item) => item.id === product.id ? { ...ProductExist, quantity: ProductExist.quantity + 1 } : item));
-    //     } else {
-    //         setCartItems([...cartItems, {...product, quantity: 1}])
-    //     }
-    // }
-    // console.log("cartItems", cartItems)
 
     function ShowProduct() {
         return (
@@ -97,8 +79,7 @@ function Product(props) {
     return (
             <div>
             {loading ? <Loading /> : <ShowProduct />}
-            </div>
-
+        </div>
     )
     
 }

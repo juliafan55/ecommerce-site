@@ -1,39 +1,25 @@
 import React from "react"
+import {useParams} from "react-router"
+import Product from "./Product"
 
-function Cart({cart, setCart}) {
+function Cart({ cart }) {
 
-    console.log("cart props", cart)
-    console.log("setcart props", setCart)
-
-    const getTotalSum = () => {
-        return cart.reduce(
-          (sum, { cost, quantity }) => sum + cost * quantity,
-          0
-        );
-      };
-
-    const clearCart = () => {
-        setCart([]);
-      };
-
-    const setQuantity = (product, amount) => {
-        const newCart = [...cart];
-        newCart.find(
-          (item) => item.title === product.title
-        ).quantity = amount;
-        setCart(newCart);
-      };
-    
-      const removeFromCart = (productToRemove) => {
-        setCart(
-          cart.filter((product) => product !== productToRemove)
-        );
-      };
+    let currentCart = JSON.parse(localStorage.getItem("cart"))
     
     return (
-        <>
+        <div>
             <h1>Cart</h1>
-      </>
+            <div>
+                {currentCart.map((item) => {
+                    return (
+                        <div key={item.id}>
+                        <img src={item.image} alt={item.title} />
+                            <p>{item.title}</p>
+                            <p>{item.price}</p>
+                    </div>)
+                })}
+            </div>
+        </div>
     )
 }
 

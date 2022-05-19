@@ -1,5 +1,6 @@
 import React from "react";
 import cardImage from "../images/home-hero-image.jpg"
+import About from "./About";
 
 function Home() {
 
@@ -13,6 +14,7 @@ function Home() {
                 <div>
                     <img className="w-full" src={cardImage} alt="dress"></img>
                 </div>
+                <About />
             </div>
         </div>
     )

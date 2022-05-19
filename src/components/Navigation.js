@@ -1,14 +1,23 @@
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 import { Link } from "react-router-dom"
 import { MenuIcon, XIcon } from "@heroicons/react/outline"
 
 
 function Navigation() {
     const [nav, setNav] = useState(false)
-
+    // const [currentCart, setCurrentCart] = useState(Object.keys(totalCart).length)
+    
     function handleClick() {
         setNav(!nav)
     }
+    
+    let totalCart = JSON.parse(localStorage["cart"])
+    let currentCart = Object.keys(totalCart).length
+    console.log(currentCart + " items in cart")
+
+    // useEffect((cart) => {
+    //     if(cart) setCurrentCart(cart)
+    // },[currentCart])
 
     return (
         <div className=" h-[80px] bg-zinc-100 drop-shadow-lg">
@@ -27,7 +36,7 @@ function Navigation() {
                     <div className="hidden md:flex pr-4">
                         <button className="border-none bg-transparent text-black mr-4">Sign In</button>
                         <button className="px-4 mr-4">Sign Up</button>
-                        <Link to="/cart"><button className="px-4 mr-4">Cart(0)</button></Link>
+                        <Link to="/cart"><button className="px-4 mr-4">Cart ({currentCart})</button></Link>
                     </div>
                     <div className="md:hidden" onClick={handleClick}>
                         {!nav ? <MenuIcon className="w-5"> </MenuIcon> : <XIcon className="w-5"/>}
@@ -41,7 +50,7 @@ function Navigation() {
                 <div className="flex flex-col my-4">
                     <button className="bg-transparent text-indigo-500 px-4 py-2 mb-4">Sign In</button>
                     <button className="px-4 py-2 mb-4 rounded-2xl">Sign Up</button>
-                    <Link to="/cart"><button className="px-4 py-2 mb-4 rounded-2xl">Cart(0)</button></Link>
+                    <Link to="/cart"><button className="px-4 py-2 mb-4 rounded-2xl">Cart ({currentCart})</button></Link>
                 </div>
             </ul>
 

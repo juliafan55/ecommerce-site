@@ -7,9 +7,12 @@ import Product from './Product';
 import Cart from './Cart';
 
 //dependencies
+import { useState } from 'react';
 import { Route, Routes } from "react-router-dom"
 
 function App() {
+  localStorage.setItem("cart", JSON.stringify([]))
+
   return (
     <div className="App">
       <Navigation />
