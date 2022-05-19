@@ -1,18 +1,28 @@
-import React, { useState } from "react"
+import React, { useEffect, useState, useMemo } from "react"
 import { Link } from "react-router-dom"
 import { MenuIcon, XIcon } from "@heroicons/react/outline"
 
 
-function Navigation() {
+function Navigation({ updateCart, setUpdateCart }) {
     const [nav, setNav] = useState(false)
     
     function handleClick() {
         setNav(!nav)
     }
+
+    useEffect(() => {
+        if (updateCart === true) {
+            setUpdateCart (false)
+        }
+    }, [updateCart])
     
     //not fully functional - only retrieves items from localstorage - need to use hook to rerender nav
-    let totalCart = JSON.parse(localStorage["cart"])
-    let currentCart = Object.keys(totalCart).length
+    // let totalCart = JSON.parse(localStorage["cart"])
+
+    const currentCart = useMemo(() => {
+        return Object.keys(JSON.parse(localStorage.getItem("cart"))).length
+    }, [updateCart])
+
 
     return (
         <div className=" h-[80px] bg-zinc-100 drop-shadow-lg">

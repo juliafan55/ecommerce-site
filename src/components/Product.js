@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router"
 import { StarIcon } from "@heroicons/react/outline"
-import { DotLoader } from "react-spinners/DotLoader"
 
-function Product(props) {
+function Product({setUpdateCart}) {
     const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(false)
 
@@ -36,6 +35,7 @@ function Product(props) {
         
         cart.push(newItem)
         localStorage.setItem("cart", JSON.stringify(cart))
+        setUpdateCart(true)
     }
 
     function ShowProduct() {
