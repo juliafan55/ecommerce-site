@@ -17,8 +17,18 @@ function Navigation({ updateCart, setUpdateCart }) {
     }, [updateCart])
 
     const currentCart = useMemo(() => {
-        return Object.keys(JSON.parse(localStorage.getItem("cart"))).length
+        let cartItems = localStorage.getItem("cart")
+        let value = 0
+        
+        if (cartItems === null) {
+            return value
+        }
+
+        return (
+            Object.keys(JSON.parse(cartItems)).length
+        )
     }, [updateCart])
+
 
 
     return (
