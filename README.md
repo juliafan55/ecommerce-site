@@ -3,6 +3,9 @@
 ## Description:
 A simple and clean website made by using React. The website pulls data from fakestoreapi to populate product information. The use should be able to navigate through and find the available products.
 
+## Deployed @
+https://atlantic-ecommerce.netlify.app/
+
 ## Technologies Used:
 React and Tailwind
 
